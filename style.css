@@ -1,0 +1,191 @@
+/* Variables y reseteo */
+:root {
+    --bg-color: #050510;
+    --text-main: #f8fafc;
+    --text-muted: #cbd5e1;
+    --accent-1: #8b5cf6; /* Púrpura */
+    --accent-2: #3b82f6; /* Azul */
+    --accent-3: #0ea5e9; /* Cyan */
+    --panel-bg: rgba(15, 17, 30, 0.65);
+    --panel-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Fondo Matrix */
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+/* Contenedor Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Paneles de Cristal (Glassmorphism) */
+.glass-panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-panel:hover {
+    border-color: rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Tipografía */
+h1, h2, h3, h4 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: var(--accent-3);
+    border-bottom: 1px solid var(--panel-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Fira Code', monospace; /* Toque tech */
+}
+
+h4 {
+    font-size: 1.1rem;
+    color: var(--accent-1);
+    margin-top: 1.5rem;
+}
+
+p, li {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    text-align: left;
+}
+
+.profile-img-container {
+    flex-shrink: 0;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+.location {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--accent-3);
+    margin-top: 0.5rem;
+}
+
+/* Layout Grid */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+}
+
+/* Tags para el Stack */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags span {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--accent-3);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Listas Especiales */
+.role-list li, .value-list li {
+    margin-bottom: 1.2rem;
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.role-list li::before, .value-list li::before {
+    content: "►";
+    position: absolute;
+    left: 0;
+    color: var(--accent-1);
+    font-size: 0.8rem;
+    top: 3px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .grid-layout {
+        grid-template-columns: 1fr;
+    }
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
